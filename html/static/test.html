@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <title>Nothing</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+                    
+        var config_data=0;
+        function get_config() {
+            var config_file_path = '/static/config.json';
+            $.getJSON(config_file_path, function (data) {
+                config_data=data;
+            });
+            
+        }
+        get_config()
+	console.log(config_data);
+    </script>

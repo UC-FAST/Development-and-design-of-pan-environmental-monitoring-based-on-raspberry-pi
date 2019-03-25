@@ -1,0 +1,20 @@
+{
+    "html": {
+        "update_time": 2000,
+        "temperature_high": 32,
+        "temperature_low": 23,
+        "humidity_high": 80,
+        "humidity_low": 20
+    },
+    "smtp":{
+        "server": "smtp.qq.com",
+        "port": 587,
+        "user":"ywt-ywt@qq.com",
+        "password":"shagmqusrdwtbebg",
+        "to":"ywt-ywt@qq.com"
+    },
+    "data_record":{
+        "frequency":600,
+        "max":100
+    }
+}
