@@ -8,7 +8,7 @@
 
 * 后台：[Flask](<http://flask.pocoo.org/> "Flask")
 * 前端：HTML CSS JS
-* 第三方：[JQurey](<http://jquery.com/> "jquery")，[Font-awsome-icons](<https://fontawesome.com/icons?from=io> "Font-awsome-icons")，[Adafruit_DHT][Adafruit_DHT](<https://github.com/adafruit/Adafruit_Python_DHT > "Adafruit_DHT")
+* 第三方：[JQurey](<http://jquery.com/> "JQuery")，[Font-awsome-icons](<https://fontawesome.com/icons?from=io> "Font-awsome-icons")，[Adafruit_DHT](<https://github.com/adafruit/Adafruit_Python_DHT > "Adafruit_DHT")
 
 ## 预览
 
