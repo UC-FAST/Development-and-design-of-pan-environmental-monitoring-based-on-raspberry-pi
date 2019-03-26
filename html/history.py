@@ -1,9 +1,8 @@
 import json
-import Adafruit_DHT
 import time
+import rpi_project
 
-
-class history_list:
+class history_list():
     def __init__(self, size):
         self.list = list()
         self.length = size
@@ -31,11 +30,6 @@ class history_list:
     def __repr__(self):
         return str(self.list)
 
-def get_config(path='./static/config.json'):
-    with open(path, 'r') as f:
-        config = json.load(f)
-    return config['data_record']['max'], config['data_record']['frequency']
-
 
 def history_write(content, path='history.json'):
     with open(path, 'w')as f:
@@ -45,18 +39,14 @@ def history_write(content, path='history.json'):
 def history_update(size, frequency):
     temp_q = history_list(size)
     hum_q = history_list(size)
-    time_q = history_list(size)
     while True:
-        d_hum, d_temp = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, 2)
-        d_hum = round(d_hum, 2)
-        d_temp = round(d_temp, 2)
-        temp_q.append(d_temp)
-        hum_q.append(d_hum)
-        time_q.append(time.strftime('%H:%M:%S',time.localtime(time.time())))
-        data = {'time':list(time_q),'temperature': list(temp_q), 'humidity': list(hum_q)}
+        data=rpi_project.get_data(2)
+        temp_q.append(data[0])
+        hum_q.append(data[1])
+        data = {'temperature': list(temp_q), 'humidity': list(hum_q)}
         history_write(json.dumps(data))
         time.sleep(frequency / 1000)
 
 
-size, frequency = get_config()
+size, frequency = (rpi_project.get_config('data_record')['max'], rpi_project.get_config('data_record')['frequency'])
 history_update(size, frequency)
