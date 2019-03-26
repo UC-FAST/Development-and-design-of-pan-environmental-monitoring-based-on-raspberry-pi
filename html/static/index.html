@@ -27,18 +27,18 @@
             $.getJSON(config_file, function (config) {
                 var temp = document.getElementById('temp');
                 temp.innerHTML = data.temperature + "°C";
-                if (data.temperature <= config.html.temperature_low)
+                if (data.temperature < config.html.temperature_low)
                     temp.setAttribute("style", "color:#0000ff");
-                else if (data.temperature >= config.html.temperature_high)
+                else if (data.temperature > config.html.temperature_high)
                     temp.setAttribute("style", "color:#ff0000");
                 else
                     temp.setAttribute("style", "color:#ffffff");
 
                 hum = document.getElementById('hum')
                 hum.innerHTML = data.humidity + "%";
-                if (data.humidity <= config.html.humidity_low)
+                if (data.humidity < config.html.humidity_low)
                     hum.setAttribute("style", "color:#0000ff");
-                else if (data.humidity >= config.html.humidity_high)
+                else if (data.humidity > config.html.humidity_high)
                     hum.setAttribute("style", "color:#ff0000");
                 else
                     hum.setAttribute("style", "color:#ffffff");

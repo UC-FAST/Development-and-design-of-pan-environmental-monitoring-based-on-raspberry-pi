@@ -1,20 +1,34 @@
 {
-    "html": {
-        "update_time": 2000,
-        "temperature_high": 32,
-        "temperature_low": 23,
-        "humidity_high": 80,
-        "humidity_low": 20
+  "html": {
+    "update_time": 2000,
+    "temperature_high": 32,
+    "temperature_low": 23,
+    "humidity_high": 80,
+    "humidity_low": 20
+  },
+  "smtp": {
+    "server": "smtp.qq.com",
+    "port": 587,
+    "user": "ywt-ywt@qq.com",
+    "password": "shagmqusrdwtbebg",
+    "to": "ywt-ywt@qq.com"
+  },
+  "data_record": {
+    "frequency": 600,
+    "max": 100
+  },
+  "speech": {
+    "token": {
+      "APPID": null,
+      "API_KEY": null,
+      "SECRET_KEY": null
     },
-    "smtp":{
-        "server": "smtp.qq.com",
-        "port": 587,
-        "user":"ywt-ywt@qq.com",
-        "password":"shagmqusrdwtbebg",
-        "to":"ywt-ywt@qq.com"
-    },
-    "data_record":{
-        "frequency":600,
-        "max":100
+    "optional": {
+      "cuid": null,
+      "spd": 4,
+      "pit": 5,
+      "vol": 5,
+      "per": 0
     }
+  }
 }
