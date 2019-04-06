@@ -14,6 +14,7 @@ def emergency_mail():
     '''
     温湿度邮件警告
     '''
+    print('dadida')
     while True:
         if rpi_project.data_emergency(2):
             print('mailing')
