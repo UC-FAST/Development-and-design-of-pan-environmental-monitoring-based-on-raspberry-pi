@@ -2,19 +2,20 @@
   "html": {
     "update_time": 2000,
     "temperature_high": 32,
-    "temperature_low": 23,
+    "temperature_low": 30,
     "humidity_high": 80,
     "humidity_low": 20
   },
   "smtp": {
-    "server": "smtp.qq.com",
-    "port": 587,
-    "user": "ywt-ywt@qq.com",
-    "password": "shagmqusrdwtbebg",
-    "to": "ywt-ywt@qq.com"
+    "server": "smtp.163.com",
+    "port": 25,
+    "user": "18115759263@163.com",
+    "password": "11811a",
+    "to": "ywt-ywt@qq.com",
+    "cool_down": 30
   },
   "data_record": {
-    "frequency": 600,
+    "frequency": 1000,
     "max": 100
   },
   "speech": {
@@ -25,7 +26,7 @@
     },
     "optional": {
       "cuid": null,
-      "spd": 4,
+      "spd": 6,
       "pit": 5,
       "vol": 5,
       "per": 0

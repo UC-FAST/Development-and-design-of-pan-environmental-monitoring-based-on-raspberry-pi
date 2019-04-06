@@ -7,14 +7,5 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
                     
-        var config_data=0;
-        function get_config() {
-            var config_file_path = '/static/config.json';
-            $.getJSON(config_file_path, function (data) {
-                config_data=data;
-            });
-            
-        }
-        get_config()
-	console.log(config_data);
+	console.log(document.domain);
     </script>

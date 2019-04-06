@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Control Panel</title>
+    <style>
+        div#button {
+            position: fixed;
+        }
+
+        img {
+            height: 164px;
+            width: 164px;
+        }
+
+        img#froward {
+            position: fixed;
+            top: 0px;
+            left: 164px;
+        }
+
+        img#backward {
+            transform: rotate(180deg);
+            position: fixed;
+            top: 328px;
+            left: 164px;
+        }
+
+        img#left {
+            position: fixed;
+            top: 164px;
+            left: 0px;
+        }
+
+        img#right {
+            position: fixed;
+            top: 164px;
+            left: 328px;
+        }
+
+        img#stop {
+            position: fixed;
+            left: 164px;
+            top: 164px;
+        }
+
+        img#trace{
+            position: fixed;
+            left: 492px;
+            top: 0px;
+        }
+        iframe{
+            position: fixed;
+            left: 492px;
+            top: 164px;
+        }
+    </style>
+</head>
+<body>
+<div id="button">
+    <a href="/api/forward"><img alt="forward" id="froward" src="static/pict/arrow.png"></a>
+    <a href="/api/backward"><img alt="backward" id="backward" src="static/pict/arrow.png"></a>
+    <a href="/api/left"><img alt="left" id="left" src="static/pict/left.png"></a>
+    <a href="/api/right"><img alt="right" id="right" src="static/pict/right.png"></a>
+    <a href="/api/stop"><img alt="stop" id="stop" src="static/pict/stop.png"></a>
+    <a href="/api/trace"><img alt="trace" id="trace" src="static/pict/trace.png"></a>
+</div>
+<iframe id="video"scrolling="no" width=660 height=500></iframe>
+<script>
+        document.getElementById('video').setAttribute("src","http://"+document.domain+":8082/")
+</script>
+</body>
+</html>

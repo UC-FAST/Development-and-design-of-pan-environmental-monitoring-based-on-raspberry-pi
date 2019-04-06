@@ -4,8 +4,7 @@
     <title>Nothing</title>
     <link rel="stylesheet" type="text/css" href="/static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
-    <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>
         function startTime() {
             var today = new Date();
@@ -23,52 +22,43 @@
             return i;
         }
 
-        function display(data) {
-            var config_file = '/static/config.json'
-            $.getJSON(config_file, function (config) {
-                var temp = document.getElementById('temp');
-                temp.innerHTML = data.temperature + "°C";
-                if (data.temperature < config.html.temperature_low)
-                    temp.setAttribute("style", "color:#0000ff");
-                else if (data.temperature > config.html.temperature_high)
-                    temp.setAttribute("style", "color:#ff0000");
-                else
-                    temp.setAttribute("style", "color:#ffffff");
-
-                hum = document.getElementById('hum')
-                hum.innerHTML = data.humidity + "%";
-                if (data.humidity < config.html.humidity_low)
-                    hum.setAttribute("style", "color:#0000ff");
-                else if (data.humidity > config.html.humidity_high)
-                    hum.setAttribute("style", "color:#ff0000");
-                else
-                    hum.setAttribute("style", "color:#ffffff");
-            })
-
-        }
-
         function update_tmp() {
+
             $.ajax({
                 url: '/api/gettmp',
                 dataType: "json",
                 success: function (data) {
-                    display(data);
+                    var temp = document.getElementById('temp')
+                    temp.innerHTML = data.temperature + "°C";
+                    if (data.temperature <= 20)
+                        temp.setAttribute("style", "color:#0000ff");
+                    else if (data.temperature >= 32)
+                        temp.setAttribute("style", "color:#ff0000");
+                    else
+                        temp.setAttribute("style", "color:#ffffff");
+
+                    hum = document.getElementById('hum')
+                    hum.innerHTML = data.humidity + "%";
+                    if (data.humidity <= 20)
+                        hum.setAttribute("style", "color:#0000ff");
+                    else if (data.humidity >= 80)
+                        hum.setAttribute("style", "color:#ff0000");
+                    else
+                        hum.setAttribute("style", "color:#ffffff");
                 }
             });
         }
-
         function update() {
-            var config_file = '/static/config.json'
-            $.getJSON(config_file, function (data) {
+            var config_file='config.json'
+            $.getJSON(config_file,function(data){
                 console.log(data.html.update_time);
                 window.setInterval(function () {
                     update_tmp();
-                }, data.html.update_time);
-            })
-
-        }
-
-
+                }, data.html.update_time);})
+            
+            }
+            
+        
         update()
     </script>
 
@@ -94,7 +84,7 @@
         </li>
     </ul>
 
-
+    
 </body>
 
 </html>
